@@ -12,5 +12,12 @@ namespace GorillaCosmetics.Utils
 				(cosmeticItem.itemCategory == CosmeticsController.CosmeticCategory.Hat ||
 				(cosmeticItem.itemCategory == CosmeticsController.CosmeticCategory.Set && cosmeticItem.bundledItems.Any(id => CosmeticsController.instance.GetItemFromDict(id).itemCategory == CosmeticsController.CosmeticCategory.Set)));
 		}
-	}
+
+        public static bool ContainsFur(CosmeticsController.CosmeticItem cosmeticItem)
+        {
+            return Plugin.SelectionManager.CurrentHat != null &&
+                (cosmeticItem.itemCategory == CosmeticsController.CosmeticCategory.Fur ||
+                (cosmeticItem.itemCategory == CosmeticsController.CosmeticCategory.Set && cosmeticItem.bundledItems.Any(id => CosmeticsController.instance.GetItemFromDict(id).itemCategory == CosmeticsController.CosmeticCategory.Set)));
+        }
+    }
 }

@@ -26,7 +26,7 @@ namespace GorillaCosmetics.UI
 		ICustomCosmeticsController offlineCustomCosmeticsController;
 		ICustomCosmeticsController onlineCustomCosmeticsController { get; set; }
 
-        CosmeticsController.Wardrobe wardrobe;
+        WardrobeInstance wardrobe;
 		GameObject mirror;
 
 		List<GorillaHat> hats;
@@ -58,7 +58,7 @@ namespace GorillaCosmetics.UI
             hats = Plugin.AssetLoader.GetAssets<GorillaHat>();
 			materials = Plugin.AssetLoader.GetAssets<GorillaMaterial>();
 
-			wardrobe = CosmeticsController.instance.wardrobes[1];
+			wardrobe = CosmeticsController.instance.wardrobes[0];
 
             CreateEnableButton();
             RestorePrefItems(); // "Restore" them after we've created the button

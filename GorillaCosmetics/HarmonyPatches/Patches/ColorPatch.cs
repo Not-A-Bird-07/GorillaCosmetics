@@ -43,7 +43,7 @@ namespace GorillaCosmetics.HarmonyPatches.Patches
 	{
 		internal static bool Prefix(GorillaTagger __instance, ref float red, ref float green, ref float blue)
 		{
-			__instance.offlineVRRig.InitializeNoobMaterialLocal(red, green, blue, GorillaComputer.instance?.leftHanded ?? false);
+			__instance.offlineVRRig.InitializeNoobMaterialLocal(red, green, blue);
 			__instance.offlineVRRig.ChangeMaterialLocal(0);
 			return false;
 		}

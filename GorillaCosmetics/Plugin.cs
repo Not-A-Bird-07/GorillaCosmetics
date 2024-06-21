@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GorillaCosmetics
 {
-    [BepInPlugin("org.legoandmars.gorillatag.gorillacosmetics", "Gorilla Cosmetics", "3.0.2")]
+    [BepInPlugin("org.legoandmars.gorillatag.gorillacosmetics", "Gorilla Cosmetics", "3.0.3")]
     [BepInDependency("org.legoandmars.gorillatag.utilla", "1.5.0")]
     public class Plugin : BaseUnityPlugin
     {

@@ -2,6 +2,7 @@
 using GorillaNetworking;
 using GorillaCosmetics.Utils;
 using GorillaCosmetics.UI;
+using static GorillaNetworking.CosmeticsController;
 
 namespace GorillaCosmetics.HarmonyPatches.Patches
 {
@@ -16,7 +17,13 @@ namespace GorillaCosmetics.HarmonyPatches.Patches
 				Plugin.SelectionManager.ResetHat();
 				__instance.UpdateShoppingCart();
 			}
-		}
+
+            if (CosmeticItemUtils.ContainsFur(cosmeticItem))
+            {
+                Plugin.SelectionManager.ResetMaterial();
+                __instance.UpdateShoppingCart();
+            }
+        }
 	}
 
 	[HarmonyPatch(typeof(CosmeticsController))]
@@ -30,7 +37,13 @@ namespace GorillaCosmetics.HarmonyPatches.Patches
 				Plugin.SelectionManager.ResetHat();
                 __instance.UpdateShoppingCart();
             }
-		}
+
+            if (CosmeticItemUtils.ContainsFur(pressedFittingRoomButton.currentCosmeticItem))
+            {
+                Plugin.SelectionManager.ResetMaterial();
+                __instance.UpdateShoppingCart();
+            }
+        }
 	}
 
 	[HarmonyPatch(typeof(CosmeticsController))]
