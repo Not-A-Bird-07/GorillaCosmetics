@@ -6,6 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using HarmonyLib;
+using System.Reflection;
+using ExitGames.Client.Photon.StructWrapping;
+using PlayFab.MultiplayerModels;
 
 namespace GorillaCosmetics.UI
 {
@@ -57,8 +61,8 @@ namespace GorillaCosmetics.UI
 
             hats = Plugin.AssetLoader.GetAssets<GorillaHat>();
 			materials = Plugin.AssetLoader.GetAssets<GorillaMaterial>();
-
-			wardrobe = CosmeticsController.instance.wardrobes[0];
+			
+			wardrobe = GameObject.FindObjectsOfType<WardrobeInstance>()[0];//TODO: something better
 
             CreateEnableButton();
             RestorePrefItems(); // "Restore" them after we've created the button
