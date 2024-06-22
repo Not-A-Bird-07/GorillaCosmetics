@@ -23,7 +23,7 @@ namespace GorillaCosmetics.HarmonyPatches
 
                 instance.PatchAll(Assembly.GetExecutingAssembly());
                 Type RigSerializeType = typeof(GorillaTagger).Assembly.GetType("VRRigSerializer");
-                instance.Patch(RigSerializeType.GetMethod("OnInstantiateSetup", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreReturn), postfix: new HarmonyMethod(typeof(CustomCosmeticsControllerPatches), nameof(CustomCosmeticsControllerPatches.InstantiateSetupPatch)));
+                instance.Patch(RigSerializeType.GetMethod("OnSpawnSetupCheck", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreReturn), postfix: new HarmonyMethod(typeof(CustomCosmeticsControllerPatches), nameof(CustomCosmeticsControllerPatches.InstantiateSetupPatch)));
                 instance.Patch(RigSerializeType.GetMethod("CleanUp", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreReturn), prefix: new HarmonyMethod(typeof(CustomCosmeticsControllerPatches), nameof(CustomCosmeticsControllerPatches.CleanUpPatch)));
 
                 IsPatched = true;

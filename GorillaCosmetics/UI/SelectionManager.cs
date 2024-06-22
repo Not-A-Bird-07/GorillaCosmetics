@@ -31,7 +31,7 @@ namespace GorillaCosmetics.UI
 		ICustomCosmeticsController onlineCustomCosmeticsController { get; set; }
 
         WardrobeInstance wardrobe;
-		GameObject mirror;
+		//GameObject mirror;
 
 		List<GorillaHat> hats;
 		List<GorillaMaterial> materials;
@@ -165,7 +165,7 @@ namespace GorillaCosmetics.UI
 			holdableButton.enabled = true;
 			holdableButton.myText.enabled = true;
 
-			mirror?.SetActive(false);
+			//mirror?.SetActive(false);
 
 			CosmeticsController.instance.PressWardrobeFunctionButton("hat");
 			CosmeticsController.instance.UpdateWardrobeModelsAndButtons();
@@ -177,7 +177,7 @@ namespace GorillaCosmetics.UI
 			{
 				// This is as resilient as I can think to make it,
 				// but it is likely to break with any update that moves the wardrobe around.
-				foreach (Transform transform in wardrobe.wardrobeItemButtons[0].transform.parent)
+				foreach (Transform transform in wardrobe.wardrobeItemButtons[0].transform.parent)//it did not -not a bird
 				{
 					string lowerName = transform.name.ToLower();
 					if (lowerName.Contains("left"))
@@ -219,7 +219,7 @@ namespace GorillaCosmetics.UI
 				Debug.LogError($"GorillaCosmetics: Failed to create direction buttons: {e}");
 			}
 
-			try
+			/*try
 			{
 				if (mirror == null)
 				{
@@ -242,7 +242,7 @@ namespace GorillaCosmetics.UI
             } catch (Exception e)
 			{
 				Debug.LogError($"GorillaCosmetics: Failed to show mirror: {e}");
-			}
+			}*/
 
 			SetView(ISelectionManager.SelectionView.Hat);
 		}
